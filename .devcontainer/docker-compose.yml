@@ -1,0 +1,20 @@
+services:
+  workspace:
+    container_name: node-workspace-container
+    image: node
+    tty: true
+
+    volumes:
+      - ../:/home/vscode/workspace:cached
+    ports:
+      - 3000:3000
+    working_dir: /workspace
+
+  json-server:
+    container-name: json-server-container
+    image: node
+    tty: true
+
+    comand: npm run json-server
+    ports:
+      - 3001:3001
